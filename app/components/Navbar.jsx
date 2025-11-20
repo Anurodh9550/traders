@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center px-6 py-3">
 
         {/* LEFT — LOGO */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 -ml-20">
           <Link href="/" className="flex items-center gap-2">
             <div className="bg-blue-600 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center text-lg">
               P
@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="flex-grow"></div>
 
         {/* RIGHT — DESKTOP MENU */}
-        <div className="hidden lg:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center space-x-8 -mr-20">
 
           <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
           <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
@@ -37,6 +37,7 @@ export default function Navbar() {
           <Link href="/financial-planning" className="text-gray-700 hover:text-blue-600">Financial Planning</Link>
 
           {/* DESKTOP DROPDOWN */}
+          
           <div className="relative group">
 
             <div className="flex items-center cursor-pointer text-gray-700 hover:text-blue-600 group-hover:text-blue-600">
@@ -83,14 +84,55 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
+          <div className="relative group">
+
+            <div className="flex items-center cursor-pointer text-gray-700 hover:text-blue-600 group-hover:text-blue-600">
+              Goal Planners <ChevronDown size={18} className="ml-1" />
+            </div>
+
+            {/* GAP FIX */}
+            <div className="absolute left-0 top-full h-2 w-full"></div>
+
+            {/* DROPDOWN BOX */}
+            <div className="absolute hidden group-hover:block bg-white shadow-xl mt-2 w-80 border border-gray-300 rounded-md z-50">
+
+              <ul className="py-2 text-[15px]">
+
+                {[
+                  ["Dream-home", "Dream Home"],
+                  ["Wealth-Creation", "Wealth Creation"],
+                  ["Retiremen", "Retirement"],
+                  ["Child's-Education", "Child's Education"],
+                  ["Child's-Wedding", "Child's Wedding"],
+                  ["Emergency", "Emergency"],
+                  
+                ].map(([url, label], index) => (
+                  <li
+                    key={index}
+                    className="border-l-4 border-transparent hover:border-blue-600 border-b border-gray-200"
+                  >
+                    <Link
+                      href={`/Goal_Planners/${url}`}
+                      className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+
+              </ul>
+            </div>
+          </div>
 
           <Link href="/contact" className="text-gray-700 hover:text-blue-600">Contact</Link>
 
-          <Link href="/login">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-              Login
-            </button>
+          <Link
+            href="/login"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+          >
+            Login
           </Link>
+
         </div>
 
         {/* MOBILE TOGGLE */}

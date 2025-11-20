@@ -204,7 +204,7 @@ export default function SIPReturnPage() {
     <div className="min-h-screen bg-gray-50 pb-20">
 
 
-      <section className="w-full bg-[#f5f9ff] pt-18 pb-6 shadow-sm mt-20">
+      <section className="w-full bg-[#f5f9ff] pt-8 pb-4 shadow-sm mt-20">
         <div className="max-w-6xl mx-auto text-center px-4">
 
           <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-3">

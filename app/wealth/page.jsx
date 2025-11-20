@@ -26,7 +26,7 @@ export default function WealthCreation() {
     return (
         <div className="w-full">
 
-            <section className="w-full bg-blue-50 py-8 mt-10">
+            <section className="w-full bg-[#e9f4ff] pt-12 pb-8 shadow-sm mt-20">
                 <h1 className="text-4xl font-semibold text-center text-gray-800">
                     Wealth Creation
                 </h1>
