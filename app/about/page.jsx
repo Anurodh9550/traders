@@ -1,5 +1,5 @@
 export default function About() {
-  // ---------- REUSABLE CARD COMPONENT ----------
+  
   function ServiceCard({ icon, color, title, description,className }) {
     return (
       <div className="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center relative overflow-hidden group">
@@ -21,7 +21,7 @@ export default function About() {
     );
   }
 
-  // ---------- SECTION HEADER COMPONENT ----------
+
   function SectionHeader({ label, title, subtitle, color }) {
     return (
       <div className="text-center mb-14">
@@ -38,7 +38,7 @@ export default function About() {
     );
   }
 
-  // ---------- TEAM CARD COMPONENT ----------
+  
   function TeamCard({ image, name, role }) {
     return (
       <div className="relative bg-white rounded-3xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center p-8">
@@ -58,7 +58,7 @@ export default function About() {
     );
   }
 
-  // ---------- MAIN RETURN ----------
+  
   return (
     <>
 

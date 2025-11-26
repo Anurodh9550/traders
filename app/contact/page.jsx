@@ -47,16 +47,16 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-     
+
       <section className="py-20 px-6 mx-6 md:mx-12 bg-gradient-to-r mt-19 from-blue-600 to-indigo-500 text-center text-white rounded-3xl shadow-lg pt-5 pb-5">
         <h1 className="text-4xl font-bold mb-3 tracking-tight">Get In <span className="text-yellow-300"> Touch</span></h1>
-        <p className="text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed whitespace-nowrap">
-  We'd love to hear from you. Let's discuss how we can help you achieve your financial goals.
-</p>
+        <p className="text-blue-100 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          We'd love to hear from you. Let's discuss how we can help you achieve your financial goals.
+        </p>
 
       </section>
 
-      
+
       <section className="max-w-6xl mx-auto mt-16 px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {contactInfo.map((item, index) => (
@@ -78,10 +78,10 @@ export default function ContactPage() {
 
       <div className="border-t border-gray-200 my-12 w-10/12 mx-auto"></div>
 
-      
+
       <section className="max-w-6xl mx-auto mb-20 px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-         
+
           <div>
             <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Send Us a Message
@@ -91,7 +91,7 @@ export default function ContactPage() {
             </p>
 
             <form className="space-y-5">
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -116,7 +116,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-             
+
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Email Address *
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 />
               </div>
 
-             
+
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Subject
@@ -140,7 +140,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              
+
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Message *
@@ -152,7 +152,7 @@ export default function ContactPage() {
                 ></textarea>
               </div>
 
-              
+
               <button
                 type="submit"
                 className="bg-blue-600 text-white w-full sm:w-auto px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all shadow-md"
@@ -162,7 +162,7 @@ export default function ContactPage() {
             </form>
           </div>
 
-         
+
           <div>
             <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Our Location
@@ -171,7 +171,7 @@ export default function ContactPage() {
               Visit us at our office in Mumbai's financial district.
             </p>
 
-            
+
             <div className="w-full h-80 bg-gray-200 rounded-2xl shadow-inner flex items-center justify-center text-gray-500 text-sm">
               📍 Map Integration Coming Soon
             </div>

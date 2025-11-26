@@ -4,18 +4,16 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [calcOpen, setCalcOpen] = useState(false);
-const pathname = usePathname();
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const pathname = usePathname();
 
   return (
     <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center px-6 py-3">
 
-        {/* LEFT — LOGO */}
-        <div className="flex-shrink-0 -ml-20">
+        <div className="flex-shrink-0 -ml-5">
           <Link href="/" className="flex items-center gap-2">
             <div className="bg-blue-600 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center text-lg">
               P
@@ -26,35 +24,44 @@ const pathname = usePathname();
           </Link>
         </div>
 
-        {/* CENTER FLEX GROW (keeps menu right aligned clean look) */}
-        <div className="flex-grow"></div>
+        <div className="flex-grow" />
 
-        {/* RIGHT — DESKTOP MENU */}
+
         <div className="hidden lg:flex items-center space-x-8 -mr-20">
+          {[
+            ["", "Home"],
+            ["about", "About"],
+            ["Services", "Services"],
+            ["Product", "Products"],
+            ["Insurance", "Insurance"],
+            ["financial-planning", "Financial Planning"],
+          ].map(([url, label], i) => (
+            <Link
+              key={i}
+              href={`/${url}`}
+              className={`relative pb-1 ${pathname === `/${url}` ? "text-blue-600 after:w-full" : "after:w-0"
+                } after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}
+            >
+              {label}
+            </Link>
+          ))}
 
-          <Link href="/" className={`relative pb-1 ${pathname === "/" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}>Home</Link>
-          <Link href="/about" className={`relative pb-1 ${pathname === "/about" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}>About</Link>
-          <Link href="/Services" className={`relative pb-1 ${pathname === "/Services" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}>Services</Link>
-          <Link href="/Product" className={`relative pb-1 ${pathname === "/Product" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}>Products</Link>
-          <Link href="/Insurance" className={`relative pb-1 ${pathname === "/Insurance" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}>Insurance</Link>
-          <Link href="/financial-planning" className={`relative pb-1 ${pathname === "/financial-planning" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}>Financial Planning</Link>
 
-          {/* DESKTOP DROPDOWN */}
-          
           <div className="relative group">
-
-            <div className="flex items-center cursor-pointer text-gray-700 hover:text-blue-600 group-hover:text-blue-600">
+            <div className="flex items-center cursor-pointer text-gray-700 group-hover:text-blue-600">
               Calculators <ChevronDown size={18} className="ml-1" />
             </div>
 
-            {/* GAP FIX */}
-            <div className="absolute left-0 top-full h-2 w-full"></div>
 
-            {/* DROPDOWN BOX */}
-            <div className="absolute hidden group-hover:block bg-white shadow-xl mt-2 w-80 border border-gray-300 rounded-md z-50">
+            <div className="absolute left-0 top-full h-3 w-full"></div>
 
-              <ul className="py-2 text-[15px]">
-
+            <div className="
+    absolute left-0 mt-2 w-80 bg-white border border-gray-300 rounded-md shadow-xl
+    opacity-0 scale-95 translate-y-2 transition-all duration-200
+    group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0
+    pointer-events-auto z-50
+  ">
+              <ul className="py-2 text-[15px] max-h-[300px] overflow-y-auto">
                 {[
                   ["sip-return", "SIP Return Calculator"],
                   ["crorepati", "Become A Crorepati Calculator"],
@@ -70,9 +77,9 @@ const pathname = usePathname();
                   ["future-value", "Future Value Calculator"],
                   ["lumpsum-target", "Lumpsum Target Calculator"],
                   ["lumpsum", "Lumpsum Calculator"],
-                ].map(([url, label], index) => (
+                ].map(([url, label], i) => (
                   <li
-                    key={index}
+                    key={i}
                     className="border-l-4 border-transparent hover:border-blue-600 border-b border-gray-200"
                   >
                     <Link
@@ -83,24 +90,28 @@ const pathname = usePathname();
                     </Link>
                   </li>
                 ))}
-
               </ul>
             </div>
           </div>
-          <div className="relative group">
 
-            <div className="flex items-center cursor-pointer text-gray-700 hover:text-blue-600 group-hover:text-blue-600">
+
+
+
+          <div className="relative group">
+            <div className="flex items-center cursor-pointer text-gray-700 group-hover:text-blue-600">
               Goal Planners <ChevronDown size={18} className="ml-1" />
             </div>
 
-            {/* GAP FIX */}
-            <div className="absolute left-0 top-full h-2 w-full"></div>
 
-            {/* DROPDOWN BOX */}
-            <div className="absolute hidden group-hover:block bg-white shadow-xl mt-2 w-80 border border-gray-300 rounded-md z-50">
+            <div className="absolute left-0 top-full h-3 w-full"></div>
 
+            <div
+              className="absolute left-0 mt-2 w-80 bg-white border border-gray-300 rounded-md shadow-xl 
+    opacity-0 scale-95 translate-y-2 transition-all duration-200 
+    group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
+    pointer-events-auto z-50"
+            >
               <ul className="py-2 text-[15px]">
-
                 {[
                   ["Dream-home", "Dream Home"],
                   ["Wealth-Creation", "Wealth Creation"],
@@ -108,10 +119,9 @@ const pathname = usePathname();
                   ["Child-Education", "Child's Education"],
                   ["Child-Wedding", "Child's Wedding"],
                   ["Emergency", "Emergency"],
-                  
-                ].map(([url, label], index) => (
+                ].map(([url, label], i) => (
                   <li
-                    key={index}
+                    key={i}
                     className="border-l-4 border-transparent hover:border-blue-600 border-b border-gray-200"
                   >
                     <Link
@@ -122,32 +132,38 @@ const pathname = usePathname();
                     </Link>
                   </li>
                 ))}
-
               </ul>
             </div>
           </div>
 
-          <Link href="/contact" className={`relative pb-1 ${pathname === "/contact" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}>Contact</Link>
+
+
+          <Link
+            href="/contact"
+            className={`relative pb-1 hover:text-blue-600 ${pathname === "/contact" ? "text-blue-600 after:w-full" : "after:w-0"
+              } after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}
+          >
+            Contact
+          </Link>
 
           <Link
             href="/login"
-           className={`relative pb-1 ${pathname === "/login" ? "text-blue-600 after:w-full" : "after:w-0"} after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}
+            className={`relative pb-1 hover:text-blue-600 ${pathname === "/login" ? "text-blue-600 after:w-full" : "after:w-0"
+              } after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300`}
           >
             Login
           </Link>
-
         </div>
 
-        {/* MOBILE TOGGLE */}
+
         <button className="lg:hidden text-gray-700 ml-4" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
-
       </div>
 
-      {/* MOBILE MENU */}
+      {/* Mobile Menu FIXED WITH SCROLL */}
       {menuOpen && (
-        <div className="lg:hidden bg-white shadow-md border-t animate-fadeIn">
+        <div className="lg:hidden bg-white shadow-md border-t animate-fadeIn max-h-[80vh] overflow-y-auto">
           <div className="flex flex-col items-center py-4 space-y-3">
 
             <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
@@ -155,24 +171,58 @@ const pathname = usePathname();
             <Link href="/Services" onClick={() => setMenuOpen(false)}>Services</Link>
             <Link href="/Product" onClick={() => setMenuOpen(false)}>Products</Link>
 
-            {/* MOBILE DROPDOWN */}
+            {/* Mobile Calculators */}
             <button
-              onClick={() => setCalcOpen(!calcOpen)}
-              className="text-gray-700 flex items-center gap-1"
+              onClick={() => setDropdownOpen(dropdownOpen === "calc" ? null : "calc")}
+              className=" flex items-center gap-1"
             >
               Calculators <ChevronDown size={18} />
             </button>
 
-            {calcOpen && (
+            {dropdownOpen === "calc" && (
               <div className="w-full px-4 space-y-2 animate-fadeIn">
                 {[
                   ["sip-return", "SIP Return Calculator"],
-                  ["crorepati", "Become a Crorepati Calculator"],
+                  ["crorepati", "Become A Crorepati Calculator"],
                   ["sip-step-up", "SIP Step-Up Calculator"],
                   ["emi", "EMI Calculator"],
                   ["target-sip", "Target Amount SIP Calculator"],
-                ].map(([url, label], index) => (
-                  <Link key={index} href={`/${url}`} onClick={() => setMenuOpen(false)}>
+                  ["sip-annual", "SIP With Annual Increase"],
+                  ["retirement", "Retirement Planning Calculator"],
+                  ["goal-setting", "Goal Setting Calculator"],
+                  ["financial-goal", "Composite Financial Goal Calculator"],
+                  ["education", "Children Education Planner"],
+                  ["compounding", "Compounding Calculator"],
+                  ["future-value", "Future Value Calculator"],
+                  ["lumpsum-target", "Lumpsum Target Calculator"],
+                  ["lumpsum", "Lumpsum Calculator"],
+                ].map(([url, label], i) => (
+                  <Link key={i} href={`/Calculators/${url}`} onClick={() => setMenuOpen(false)}>
+                    <p className="bg-gray-100 p-2 rounded-md text-center">{label}</p>
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Mobile Goal Planners */}
+            <button
+              onClick={() => setDropdownOpen(dropdownOpen === "goal" ? null : "goal")}
+              className=" flex items-center gap-1"
+            >
+              Goal Planners <ChevronDown size={18} />
+            </button>
+
+            {dropdownOpen === "goal" && (
+              <div className="w-full px-4 space-y-2 animate-fadeIn">
+                {[
+                  ["Dream-home", "Dream Home"],
+                  ["Wealth-Creation", "Wealth Creation"],
+                  ["Retiremen", "Retirement"],
+                  ["Child-Education", "Child's Education"],
+                  ["Child-Wedding", "Child's Wedding"],
+                  ["Emergency", "Emergency"],
+                ].map(([url, label], i) => (
+                  <Link key={i} href={`/Goal_Planners/${url}`} onClick={() => setMenuOpen(false)}>
                     <p className="bg-gray-100 p-2 rounded-md text-center">{label}</p>
                   </Link>
                 ))}
@@ -184,11 +234,8 @@ const pathname = usePathname();
             <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
 
             <Link href="/login" onClick={() => setMenuOpen(false)}>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
-                Login
-              </button>
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">Login</button>
             </Link>
-
           </div>
         </div>
       )}
