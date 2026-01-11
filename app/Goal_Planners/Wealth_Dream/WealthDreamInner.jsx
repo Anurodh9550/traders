@@ -29,7 +29,7 @@ export default function WealthDreamInner() {
 
     return (
         <div className="w-full bg-white">
-            <section className="py-16 px-6 w-full  -mt-10 from-white to-indigo-500 text-white bg-white  pb-4">
+            <section className="py-16 px-6 w-full  -mt-33 from-white to-indigo-500 text-white bg-white  pb-4">
         
       </section>
 

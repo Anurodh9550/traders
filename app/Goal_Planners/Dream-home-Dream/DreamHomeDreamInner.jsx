@@ -27,7 +27,7 @@ export default function DreamHomeDreamInner() {
 
   return (
     <div className="w-full bg-white">
-<section className="py-16 px-6 w-full  -mt-10 from-white to-indigo-500 text-white bg-white  pb-4">
+<section className="py-16 px-6 w-full  -mt-33 from-white to-indigo-500 text-white bg-white  pb-4">
         
       </section>
 
@@ -47,7 +47,7 @@ export default function DreamHomeDreamInner() {
 
 
             <div className="bg-white rounded-xl shadow text-center border border-gray-200 py-6">
-              <div className="text-3xl font-bold">₹ {cost.toLocaleString()}</div>
+              <div className="text-3xl text-black font-bold">₹ {cost.toLocaleString()}</div>
               <div className="mt-4 bg-[#3B82F6] text-white py-3 rounded-md text-sm transform hover:scale-105 transition object-cover">
                 Your Targeted Amount <br /> (in today's value)
               </div>
@@ -55,7 +55,7 @@ export default function DreamHomeDreamInner() {
 
 
             <div className="bg-white rounded-xl shadow text-center border border-gray-200 py-6">
-              <div className="text-3xl font-bold">₹ {futureValue.toLocaleString()}</div>
+              <div className="text-3xl font-bold text-black">₹ {futureValue.toLocaleString()}</div>
               <div className="mt-4 bg-[#3B82F6] text-white py-3 rounded-md text-sm transform hover:scale-105 transition object-cover">
                 Future value of your Dream Home <br />
                 (adjusting for {inflation}% inflation)
@@ -64,7 +64,7 @@ export default function DreamHomeDreamInner() {
 
 
             <div className="bg-white rounded-xl shadow text-center border border-gray-200 py-6">
-              <div className="text-3xl font-bold">{age}</div>
+              <div className="text-3xl font-bold text-black">{age}</div>
               <div className="mt-4 bg-[#3B82F6] text-white py-3 rounded-md text-sm transform hover:scale-105 transition object-cover">
                 Number of Years <br /> You Need To Save
               </div>
@@ -72,7 +72,7 @@ export default function DreamHomeDreamInner() {
 
 
             <div className="bg-white rounded-xl shadow text-center border border-gray-200 py-6">
-              <div className="text-3xl font-bold">₹ {monthlySIP.toLocaleString()}</div>
+              <div className="text-3xl font-bold text-black">₹ {monthlySIP.toLocaleString()}</div>
               <div className="mt-4 bg-[#3B82F6] text-white py-3 rounded-md text-sm transform hover:scale-105 transition object-cover">
                 Monthly SIP Investment <br /> Required
               </div>

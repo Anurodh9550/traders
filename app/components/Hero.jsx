@@ -128,7 +128,7 @@ export default function Hero() {
   return (
     <div className="bg-white">
 
-      <section className="relative min-h-[96vh] flex items-center px-10 py-20 overflow-hidden rounded-3xl -mt-9  transition duration-300 hover:scale-101 object-cover border border-gray-100">
+      <section className="relative min-h-[96vh] flex items-center px-10 py-20 overflow-hidden rounded-3xl -mt-11  transition duration-300 hover:scale-101 object-cover border border-gray-100">
 
         {/* Background Images */}
         {slideData.map((item, i) => (

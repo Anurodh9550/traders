@@ -23,7 +23,7 @@ export default function ChildSummaryClient() {
 
   return (
     <div className="w-full">
-      <section className="w-full bg-[#e9f4ff] pt-12 pb-8 shadow-sm mt-20">
+      <section className="w-full bg-[#e9f4ff] pt-12 pb-8 shadow-sm mt-3">
         <h1 className="text-4xl font-semibold text-center text-gray-900">
           Child Goal Summary
         </h1>

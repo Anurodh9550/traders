@@ -181,7 +181,7 @@ const sipAmount = Number(search.get("sip") || 0);
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <section className="py-16 px-6 w-full  -mt-10 from-white to-indigo-500 text-white bg-white  pb-4">
+      <section className="py-16 px-6 w-full  -mt-33 from-white to-indigo-500 text-white bg-white  pb-4">
         
       </section>
 
@@ -204,31 +204,31 @@ const sipAmount = Number(search.get("sip") || 0);
      
       <section className="max-w-6xl mx-auto px-6 mt-8">
         <div className="bg-white rounded-lg shadow-xl p-6">
-          <div className="grid grid-cols-1 md:grid-cols-5 items-center text-center ">
-            <div >
-              <div className="text-sm text-white-500">Investment Type</div>
+          <div className="grid grid-cols-1 md:grid-cols-5 items-center bg-gray-100 rounded-lg text-center  border border-gray-600 ">
+            <div className="border-r border-gray-600 " >
+              <div className="text-sm font-bold text-black m-2">Investment Type</div>
               <div className="text-[#3B82F6] font-semibold text-lg">{investmentType}</div>
             </div>
 
-            <div >
-              <div className="text-sm text-white-500">Risk Tolerance</div>
+            <div className="border-r border-gray-600 " >
+              <div className="text-sm font-bold text-black m-2">Risk Tolerance</div>
               <div className="text-[#3B82F6] font-semibold text-lg">{riskTolerance}</div>
             </div>
 
-            <div >
-              <div className="text-sm text-white-500">Time Horizon</div>
+            <div className="border-r border-gray-600 ">
+              <div className="text-sm font-bold text-black m-2">Time Horizon</div>
               <div className="text-[#3B82F6] font-semibold text-lg">{timeHorizon}</div>
             </div>
 
-            <div >
-              <div className="text-sm text-white-500">Target Amount</div>
+            <div className="border-r border-gray-600 " >
+              <div className="text-sm font-bold text-black m-2">Target Amount</div>
               <div className="text-[#3B82F6] font-semibold text-lg">
                 {fmt(targetAmount)}
               </div>
             </div>
 
             <div >
-              <div className="text-sm text-white-500">SIP Amount</div>
+              <div className="text-sm font-bold text-black">SIP Amount</div>
               <div className="text-[#3B82F6] font-semibold text-lg">{fmt(sipAmount)}</div>
             </div>
           </div>
@@ -236,21 +236,23 @@ const sipAmount = Number(search.get("sip") || 0);
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
             <div className="col-span-1">
-              <div className="bg-white p-4">
+              <div className="bg-white p-4 text-black">
                 <div style={{ height: 200 }}>
                   <Pie data={pieData} options={pieOptions} />
                 </div>
 
-                <div className="flex gap-4 mt-3 items-center justify-center text-sm">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 bg-[#93C5FD] inline-block rounded-sm" />
-                    SIP Invested
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 bg-[#3B82F6] inline-block rounded-sm" />
-                    Growth Amount
-                  </div>
-                </div>
+                <div className="flex gap-4 mt-3 items-center justify-center text-sm text-black">
+  <div className="flex items-center gap-2">
+    <span className="w-3 h-3 bg-[#93C5FD] inline-block rounded-sm" />
+    <span className="font-medium">SIP Invested</span>
+  </div>
+
+  <div className="flex items-center gap-2">
+    <span className="w-3 h-3 bg-[#3B82F6] inline-block rounded-sm" />
+    <span className="font-medium">Growth Amount</span>
+  </div>
+</div>
+
               </div>
             </div>
 
@@ -281,21 +283,21 @@ const sipAmount = Number(search.get("sip") || 0);
 
       
       <section className="max-w-6xl mx-auto px-6 mt-4 pb-16">
-        <div className="bg-white rounded-lg shadow-xl p-6 mt-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-          <h2 className="text-2xl font-semibold mb-6 text-center">Recommended Funds</h2>
+        <div className="bg-white rounded-lg shadow-xl p-6 mt-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl  text-black">
+          <h2 className="text-2xl font-semibold mb-6 text-center ">Recommended Funds</h2>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left">
+            <table className="w-full text-left border border-black">
               <thead>
                 <tr className="bg-[#3B82F6]  border-b text-white">
-                  <th className="p-3">Scheme Name</th>
-                  <th className="p-3">Category</th>
-                  <th className="p-3">NAV</th>
-                  <th className="p-3">Return (1Y)</th>
-                  <th className="p-3">Return (3Y)</th>
-                  <th className="p-3">Return (5Y)</th>
-                  <th className="p-3">Allocation (%)</th>
-                  <th className="p-3">Amount</th>
+                  <th className="p-3 border border-black">Scheme Name</th>
+                  <th className="p-3 border border-black">Category</th>
+                  <th className="p-3 border border-black">NAV</th>
+                  <th className="p-3 border border-black">Return (1Y)</th>
+                  <th className="p-3 border border-black">Return (3Y)</th>
+                  <th className="p-3 border border-black">Return (5Y)</th>
+                  <th className="p-3 border border-black">Allocation (%)</th>
+                  <th className="p-3 border border-black">Amount</th>
                 </tr>
               </thead>
 
@@ -316,13 +318,13 @@ const sipAmount = Number(search.get("sip") || 0);
                       </div>
                     </td>
 
-                    <td className="p-4">{f.category}</td>
-                    <td className="p-4">{f.nav}</td>
-                    <td className="p-4">{f.returns.y1}</td>
-                    <td className="p-4">{f.returns.y3}</td>
-                    <td className="p-4">{f.returns.y5}</td>
-                    <td className="p-4">{f.allocation}%</td>
-                    <td className="p-4">₹ {f.amount.toLocaleString()}</td>
+                    <td className="p-4 border border-black">{f.category}</td>
+                    <td className="p-4 border border-black">{f.nav}</td>
+                    <td className="p-4 border border-black">{f.returns.y1}</td>
+                    <td className="p-4 border border-black">{f.returns.y3}</td>
+                    <td className="p-4 border border-black ">{f.returns.y5}</td>
+                    <td className="p-4 border border-black">{f.allocation}%</td>
+                    <td className="p-4 border border-black">₹ {f.amount.toLocaleString()}</td>
                   </tr>
                 ))}
               </tbody>
@@ -348,34 +350,34 @@ const sipAmount = Number(search.get("sip") || 0);
 
       {/* Modal: Change the Scheme Name */}
       {openModal && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center p-6 bg-black/40">
-          <div className="bg-white w-[90%] max-w-4xl rounded shadow-lg overflow-y-auto max-h-[85vh]">
-            <div className="bg-[#3B82F6] text-white px-6 py-4 rounded-t">
-              <h3 className="text-2xl">Change the Scheme Name</h3>
+        <div className="fixed inset-0 z-50 flex items-start justify-center p-6 bg-black/40  text-black">
+          <div className="bg-white w-[90%] max-w-4xl rounded shadow-lg overflow-y-auto max-h-[85vh]  ">
+            <div className="bg-[#3B82F6] text-black px-6 py-4 rounded-t border-b border-black">
+              <h3 className="text-2xl font-semibold">Change the Scheme Name</h3>
             </div>
 
             <div className="p-6">
-              <table className="w-full">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="p-3 text-left">Scheme Name</th>
-                    <th className="p-3">Category</th>
-                    <th className="p-3">1 Yr</th>
-                    <th className="p-3">3 Yrs</th>
-                    <th className="p-3">5 Yrs</th>
-                    <th className="p-3">Select</th>
+              <table className="w-full border border-black border-collapse">
+                <thead className="bg-gray-100 text-black">
+                  <tr >
+                    <th className="p-3 text-left border border-black">Scheme Name</th>
+                    <th className="p-3 border border-black">Category</th>
+                    <th className="p-3 border border-black">1 Yr</th>
+                    <th className="p-3 border border-black">3 Yrs</th>
+                    <th className="p-3 border border-black">5 Yrs</th>
+                    <th className="p-3 border border-black">Select</th>
                   </tr>
                 </thead>
 
                 <tbody>
                   {modalSchemes.map((s) => (
                     <tr key={s.id} className="border-b hover:bg-gray-50">
-                      <td className="p-3">{s.name}</td>
-                      <td className="p-3">{s.category}</td>
-                      <td className="p-3">{s.y1}</td>
-                      <td className="p-3">{s.y3}</td>
-                      <td className="p-3">{s.y5}</td>
-                      <td className="p-3 text-center">
+                      <td className="p-3 border border-black">{s.name}</td>
+                      <td className="p-3 border border-black">{s.category}</td>
+                      <td className="p-3 border border-black">{s.y1}</td>
+                      <td className="p-3 border border-black">{s.y3}</td>
+                      <td className="p-3 border border-black">{s.y5}</td>
+                      <td className="p-3 text-center border border-black">
                         <input
                           type="radio"
                           name="modalScheme"
@@ -389,7 +391,7 @@ const sipAmount = Number(search.get("sip") || 0);
               </table>
 
               {/* modal actions */}
-              <div className="flex justify-end gap-4 mt-6">
+              <div className="flex justify-end gap-4 mt-3">
                 <button
                   onClick={() => {
                     setOpenModal(false);
@@ -401,7 +403,7 @@ const sipAmount = Number(search.get("sip") || 0);
                   Close
                 </button>
 
-                <button onClick={updateScheme} className="px-5 py-2 bg-blue-700 text-white rounded">
+                <button onClick={updateScheme} className="px-5 py-2 bg-blue-700 text-white border border-black rounded">
                   Submit
                 </button>
               </div>

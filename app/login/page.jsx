@@ -108,7 +108,17 @@ export default function LoginPage() {
             }`}
           >
             Login
-          </button>
+        </button>
+          {/*  <button
+            onClick={() => setActiveTab("register")}
+            className={`w-full py-2 rounded-lg font-medium transition-all ${
+              activeTab === "login"
+                ? "bg-white text-blue-600 shadow-sm"
+                : "text-gray-600 hover:text-blue-600"
+            }`}
+          >
+            register
+          </button>*/}
           
         </div>
 
